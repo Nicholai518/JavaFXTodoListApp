@@ -99,16 +99,7 @@ public class ToDoListApplication
 
         // Print button
         Button printButton = new Button("Print");
-        printButton.setOnAction(e ->
-        {
-            try
-            {
-                this.OnPrintButtonClick();
-            } catch (IOException ex)
-            {
-                ex.printStackTrace();
-            }
-        });
+        printButton.setOnAction(e -> this.OnPrintButtonClick());
 
         // Submit Button
         Button submitButton = new Button("Submit");
