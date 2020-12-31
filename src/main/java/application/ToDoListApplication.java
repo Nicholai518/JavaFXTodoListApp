@@ -30,6 +30,7 @@ public class ToDoListApplication
     private RadioButton lowButton = new RadioButton("Low");
     private RadioButton mediumButton = new RadioButton("Medium");
     private RadioButton highButton = new RadioButton("High");
+    // private Button printButton = new Button("Print");
     private Text toDoListDisplayText = new Text();
 
     public ToDoListApplication(Stage _stage)
@@ -93,61 +94,13 @@ public class ToDoListApplication
         levelOfImportanceMainVBox.setPadding(new Insets(10));
 
 
+        // Print button
+        Button printButton = new Button("Print");
+        printButton.setOnAction(e -> this.OnPrintButtonClick());
+
         // Submit Button
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> this.OnSubmitButtonClick());
-
-        // Button & Event Handling
-        Button printButton = new Button("Print");
-        printButton.setOnAction(e ->
-        {
-            // Creating file ?
-            File toDoFile = new File("C:\\toDoList.txt");
-
-            // Used to append to a file if one already exists with this name
-            FileWriter fileWriter = null;
-
-            try
-            {
-                // File Writer and PrintWriter
-                fileWriter = new FileWriter(toDoFile, true);
-                PrintWriter printWriter = new PrintWriter(fileWriter);
-
-                // Writing to file
-                Iterator<Task> itr = userToDoList.getTasks().iterator();
-
-                int counter = 1;
-                String listStringAccumulator = "";
-
-                while (itr.hasNext())
-                {
-                    listStringAccumulator += counter + ": " + itr.next() + "\n";
-                    counter++;
-                }
-
-
-                LocalDate localDate = LocalDate.now();
-                printWriter.println("----------------------------");
-                printWriter.println("to-do-list: " + localDate);
-                printWriter.println(listStringAccumulator);
-                printWriter.println("");
-                printWriter.println("");
-
-                // Close
-                printWriter.close();
-                fileWriter.close();
-
-                // Update Text display
-                toDoListDisplayText.setText("File Has been saved to C drive. Good Luck!");
-
-            }
-            // Throws IOException
-            catch (IOException ex)
-            {
-                ex.printStackTrace();
-            }
-
-        });
 
         // Button Container
         HBox buttonHBox = new HBox(10, submitButton, printButton);
@@ -226,5 +179,56 @@ public class ToDoListApplication
         enterTaskTextField.setText("");
         notTimeSensitiveButton.setSelected(true);
         lowButton.setSelected(true);
+    }
+
+    private void OnPrintButtonClick()
+    {
+        // Creating file ?
+        File toDoFile = new File("C:\\toDoList.txt");
+
+        // Used to append to a file if one already exists with this name
+        FileWriter fileWriter = null;
+
+        try
+        {
+            // File Writer and PrintWriter
+            fileWriter = new FileWriter(toDoFile, true);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            // Writing to file
+            Iterator<Task> itr = userToDoList.getTasks().iterator();
+
+            int counter = 1;
+            String listStringAccumulator = "";
+
+            while (itr.hasNext())
+            {
+                listStringAccumulator += counter + ": " + itr.next() + "\n";
+                counter++;
+            }
+
+
+            LocalDate localDate = LocalDate.now();
+            printWriter.println("----------------------------");
+            printWriter.println("to-do-list: " + localDate);
+            printWriter.println(listStringAccumulator);
+            printWriter.println("");
+            printWriter.println("");
+
+            // Close
+            printWriter.close();
+            fileWriter.close();
+
+            // Update Text display
+            toDoListDisplayText.setText("File Has been saved to C drive. Good Luck!");
+
+        }
+        // Throws IOException
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
+
     }
 }
