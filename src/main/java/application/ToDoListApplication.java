@@ -19,7 +19,7 @@ import java.util.List;
 public class ToDoListApplication
 {
     private Stage stage;
-    private ToDoList userToDoList = new ToDoList();
+    private ToDoList todoList = new ToDoList();
     private TextField enterTaskTextField = new TextField();
     private RadioButton timeSensitiveButton = new RadioButton("Time Sensitive");
     private RadioButton notTimeSensitiveButton = new RadioButton("Not Time Sensitive");
@@ -33,10 +33,19 @@ public class ToDoListApplication
         stage = _stage;
     }
 
-    private ITodoListSavedData savedData = new FileSystemToDoListSavedData();
+    private ITodoListSavedData fileSystemSaveData = new FileSystemToDoListSavedData();
 
-    public void start()
+    public void start() throws IOException
     {
+        SaveData saveData = fileSystemSaveData.load();
+
+        if (saveData.getTodos() != null) {
+            for (Task task : saveData.getTodos()) {
+                todoList.addTask(task);
+            }
+            updateToDoListDisplayTextWithTodos();
+        }
+
         // To-Do Top Description
         Text toDoText = new Text("To-Do List");  // No longer needed because background image states to-do list in similar spot
         toDoText.setFont(new Font("Verdana", 20));
@@ -90,17 +99,12 @@ public class ToDoListApplication
         levelOfImportanceMainVBox.setAlignment(Pos.CENTER);
         levelOfImportanceMainVBox.setPadding(new Insets(10));
 
-
-        // Print button
-        Button printButton = new Button("Print");
-        printButton.setOnAction(e -> this.OnPrintButtonClick());
-
         // Submit Button
-        Button submitButton = new Button("Submit");
-        submitButton.setOnAction(e -> this.OnSubmitButtonClick());
+        Button saveButton = new Button("Save");
+        saveButton.setOnAction(e -> this.OnSubmitButtonClick());
 
         // Button Container
-        HBox buttonHBox = new HBox(10, submitButton, printButton);
+        HBox buttonHBox = new HBox(10, saveButton);
         buttonHBox.setAlignment(Pos.CENTER);
         buttonHBox.setPadding(new Insets(10));
 
@@ -149,10 +153,30 @@ public class ToDoListApplication
         // Create Task
         Task newTask = new Task(userTaskDisc, isTimeSensitive, loi);
 
-        userToDoList.addTask(newTask);
+        todoList.addTask(newTask);
 
+        updateToDoListDisplayTextWithTodos();
+
+        // Reset accumulator and controls
+        enterTaskTextField.setText("");
+        notTimeSensitiveButton.setSelected(true);
+        lowButton.setSelected(true);
+
+        try
+        {
+            fileSystemSaveData.save(todoList);
+        }
+        // Throws IOException
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void updateToDoListDisplayTextWithTodos()
+    {
         // List for Tasks
-        List<Task> theTaskList = userToDoList.getTasks();
+        List<Task> theTaskList = todoList.getTasks();
 
         // Sort, reverse, display
         Collections.sort(theTaskList);
@@ -175,26 +199,5 @@ public class ToDoListApplication
 
         // Display List values
         toDoListDisplayText.setText(listStringAccumulator.toString());
-
-        // Reset accumulator and controls
-        enterTaskTextField.setText("");
-        notTimeSensitiveButton.setSelected(true);
-        lowButton.setSelected(true);
-    }
-
-    private void OnPrintButtonClick()
-    {
-        try
-        {
-            savedData.save(userToDoList);
-
-            // Update Text display
-            toDoListDisplayText.setText("Data saved, Good Luck!");
-        }
-        // Throws IOException
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
     }
 }

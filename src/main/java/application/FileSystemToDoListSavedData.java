@@ -1,64 +1,57 @@
 package application;
 
-import java.io.File;
-import java.io.FileWriter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Iterator;
 
 public class FileSystemToDoListSavedData implements ITodoListSavedData
 {
+    private final String filename = "savedata.json";
+    private final String directoryPath = "\\nicholai518\\JavaFXTodoListApp";
+
     public void save(ToDoList todoList) throws IOException
     {
-        String appDataPath = System.getenv("APPDATA");
-        String filename = "todos.csv";
-        String directoryPath = appDataPath + "\\nicholai518\\JavaFXTodoListApp";
-        String filePath = directoryPath + "\\" + filename;
+        String filePath = getSaveFilePath();
 
-        Files.createDirectories(Paths.get(directoryPath));
+        Files.createDirectories(Paths.get(getSaveDirectoryPath()));
 
-        // Creating file ?
-        File toDoFile = new File(filePath);
+        SaveData saveData = new SaveData(todoList.getTasks());
 
-        // Used to append to a file if one already exists with this name
-        FileWriter fileWriter = null;
+        ObjectMapper mapper = new ObjectMapper();
 
-        // File Writer and PrintWriter
-        fileWriter = new FileWriter(toDoFile, true);
-        PrintWriter printWriter = new PrintWriter(fileWriter);
-
-        // Writing to file
-        Iterator<Task> itr = todoList.getTasks().iterator();
-
-        int counter = 1;
-        while (itr.hasNext())
-        {
-            Task task = itr.next();
-            // id,text,date,LOI,timeSensitive
-            String listStringAccumulator = counter +
-                    "," +
-                    task.getTaskDescription() +
-                    "," +
-                    task.getCreatedAt() +
-                    "," +
-                    task.getLevelOfImportance() +
-                    "," +
-                    task.getTimeSensitive();
-            printWriter.println(listStringAccumulator);
-            counter++;
-        }
-
-        // Close
-        printWriter.close();
-        fileWriter.close();
+        mapper.writeValue(Paths.get(filePath).toFile(), saveData);
 
         System.out.println("File saved to disk: " + filePath);
     }
 
-    public ToDoList load()
+    public SaveData load() throws IOException
     {
-        return new ToDoList();
+        String filePath = getSaveFilePath();
+
+        Files.createDirectories(Paths.get(getSaveDirectoryPath()));
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        SaveData data = new SaveData();
+        if (Files.exists(Paths.get(filePath)))
+        {
+            FileReader fileReader= new FileReader(filePath);
+            data = mapper.readValue(fileReader, SaveData.class);
+        }
+        return data;
+    }
+
+    private String getSaveDirectoryPath()
+    {
+        String appDataPath = System.getenv("APPDATA");
+        return appDataPath + directoryPath;
+    }
+
+    private String getSaveFilePath()
+    {
+        return getSaveDirectoryPath() + "\\" + filename;
     }
 }

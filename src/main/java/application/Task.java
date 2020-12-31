@@ -19,6 +19,10 @@ public class Task implements Comparable<Task>
     private Date createdAt;
     private int priorityLevel;
 
+    public Task()
+    {
+    }
+
     public Task(String taskDescription, boolean timeSensitive, TaskImportance levelOfImportance)
     {
         this.taskDescription = taskDescription;
