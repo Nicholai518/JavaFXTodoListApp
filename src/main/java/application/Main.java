@@ -1,14 +1,15 @@
-package main.java;
+package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import main.java.application.ToDoListApplication;
+
+import java.io.IOException;
 
 public class Main extends Application
 {
 
     @Override
-    public void start(Stage primaryStage)
+    public void start(Stage primaryStage) throws IOException
     {
         ToDoListApplication application = new ToDoListApplication(primaryStage);
 

@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/FileSystemToDoListSavedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/FileSystemToDoListSavedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/ITodoListSavedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/ITodoListSavedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/ToDoListApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/ToDoListApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +62,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -69,6 +74,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1h7fEZS3rLjWC4DPorpwzNBud9N" />
@@ -94,6 +106,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -134,12 +147,12 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="main.java.Main" />
+      <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="JavaFXTodoListApp" />
       <option name="VM_PARAMETERS" value="--module-path C:\dev\JavaFXFiles\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.*" />
+          <option name="PATTERN" value="application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -277,7 +290,7 @@
       <workItem from="1609392526654" duration="562000" />
       <workItem from="1609393207496" duration="509000" />
       <workItem from="1609394907940" duration="2805000" />
-      <workItem from="1609397802056" duration="1706000" />
+      <workItem from="1609397802056" duration="5964000" />
     </task>
     <servers />
   </component>
@@ -289,47 +302,75 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Project_Structure" timestamp="1609393424189">
+    <state x="552" y="179" key="#Project_Structure" timestamp="1609400966254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609393424189" />
+    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609400966254" />
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609391203265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609391203265" />
+    <state x="765" y="222" key="#com.intellij.ide.util.MemberChooser" timestamp="1609403466478">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="222" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403466478" />
     <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1609391197550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609391197550" />
+    <state x="1070" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1609400677562">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1070" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609400677562" />
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601927176986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1601927176986" />
-    <state x="533" y="140" width="440" height="658" key="FileChooserDialogImpl" timestamp="1609392590107">
+    <state x="386" y="176" width="440" height="658" key="FileChooserDialogImpl" timestamp="1609400692152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="533" y="140" width="440" height="658" key="FileChooserDialogImpl/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609392590107" />
+    <state x="386" y="176" width="440" height="658" key="FileChooserDialogImpl/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609400692152" />
     <state x="2266" y="290" key="FileChooserDialogImpl/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@1920.56.1280.984" timestamp="1605242998956" />
-    <state width="1877" height="241" key="GridCell.Tab.0.bottom" timestamp="1609399516226">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1609403808173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="241" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609399516226" />
-    <state width="1877" height="241" key="GridCell.Tab.0.center" timestamp="1609399516226">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403808173" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1609403808172">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="241" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609399516226" />
-    <state width="1877" height="241" key="GridCell.Tab.0.left" timestamp="1609399516225">
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403808172" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1609403808172">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="241" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609399516225" />
-    <state width="1877" height="241" key="GridCell.Tab.0.right" timestamp="1609399516226">
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403808172" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1609403808173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="241" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609399516226" />
-    <state x="358" y="175" key="SettingsEditor" timestamp="1609395106505">
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403808173" />
+    <state width="1877" height="159" key="GridCell.Tab.1.bottom" timestamp="1609403055561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="358" y="175" key="SettingsEditor/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609395106505" />
+    <state width="1877" height="159" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403055561" />
+    <state width="1877" height="159" key="GridCell.Tab.1.center" timestamp="1609403055561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.1.center/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403055561" />
+    <state width="1877" height="159" key="GridCell.Tab.1.left" timestamp="1609403055561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.1.left/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403055561" />
+    <state width="1877" height="159" key="GridCell.Tab.1.right" timestamp="1609403055561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609403055561" />
+    <state x="358" y="175" key="SettingsEditor" timestamp="1609400652023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="358" y="175" key="SettingsEditor/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609400652023" />
+    <state x="776" y="299" key="chooseDestDirectoryDialog" timestamp="1609400788947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="776" y="299" key="chooseDestDirectoryDialog/0.0.1920.1040/-1280.47.1280.984/1920.56.1280.984@0.0.1920.1040" timestamp="1609400788947" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1608346456088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
