@@ -32,13 +32,14 @@ public class ToDoListApplication
     private RadioButton lowButton = new RadioButton("Low");
     private RadioButton mediumButton = new RadioButton("Medium");
     private RadioButton highButton = new RadioButton("High");
-    // private Button printButton = new Button("Print");
     private Text toDoListDisplayText = new Text();
 
     public ToDoListApplication(Stage _stage)
     {
         stage = _stage;
     }
+
+    private ITodoListSavedData savedData = new FileSystemToDoListSavedData();
 
     public void start()
     {
@@ -194,58 +195,17 @@ public class ToDoListApplication
 
     private void OnPrintButtonClick() throws IOException
     {
-        String appDataPath = System.getenv("APPDATA");
-        String filename = "todolist.txt";
-        String filePath = appDataPath + "\\nicholai518\\JavaFXTodoListApp";
-
-        Files.createDirectories(Paths.get(filePath));
-
-        // Creating file ?
-        File toDoFile = new File(filePath + "\\" + filename);
-
-        // Used to append to a file if one already exists with this name
-        FileWriter fileWriter = null;
-
         try
         {
-            // File Writer and PrintWriter
-            fileWriter = new FileWriter(toDoFile, true);
-            PrintWriter printWriter = new PrintWriter(fileWriter);
-
-            // Writing to file
-            Iterator<Task> itr = userToDoList.getTasks().iterator();
-
-            int counter = 1;
-            String listStringAccumulator = "";
-
-            while (itr.hasNext())
-            {
-                listStringAccumulator += counter + ": " + itr.next() + "\n";
-                counter++;
-            }
-
-
-            LocalDate localDate = LocalDate.now();
-            printWriter.println("----------------------------");
-            printWriter.println("to-do-list: " + localDate);
-            printWriter.println(listStringAccumulator);
-            printWriter.println("");
-            printWriter.println("");
-
-            // Close
-            printWriter.close();
-            fileWriter.close();
+            savedData.save(userToDoList);
 
             // Update Text display
-            toDoListDisplayText.setText("File Has been saved to " + filePath + " drive. Good Luck!");
-
+            toDoListDisplayText.setText("Data saved, Good Luck!");
         }
         // Throws IOException
         catch (IOException ex)
         {
             ex.printStackTrace();
         }
-
-
     }
 }
