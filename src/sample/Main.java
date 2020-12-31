@@ -208,24 +208,9 @@ public class Main extends Application
         buttonHBox.setAlignment(Pos.CENTER);
         buttonHBox.setPadding(new Insets(10));
 
-        // Background picture
-        Image backgroundImageForApplication = new Image("https://www.designeatrepeat.com/wp-content/uploads/printable-to-do-list-680x803.png");
-
-        // create a background image
-        BackgroundImage backgroundimage = new BackgroundImage(backgroundImageForApplication,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
-
-        // create Background
-        Background background = new Background(backgroundimage);
-
-
         // Main container
         VBox mainContainer = new VBox(10, enterTaskHBox, timeSensitiveMainVBox, levelOfImportanceMainVBox, buttonHBox, toDoDisplayText);
-        // TODO: add background image (opacity is too bright)
-        //        mainContainer.setBackground(background);
+
         mainContainer.setAlignment(Pos.CENTER);
         mainContainer.setPadding(new Insets(10));
 
