@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Iterator;
@@ -96,7 +98,16 @@ public class ToDoListApplication
 
         // Print button
         Button printButton = new Button("Print");
-        printButton.setOnAction(e -> this.OnPrintButtonClick());
+        printButton.setOnAction(e ->
+        {
+            try
+            {
+                this.OnPrintButtonClick();
+            } catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+        });
 
         // Submit Button
         Button submitButton = new Button("Submit");
@@ -114,7 +125,7 @@ public class ToDoListApplication
         mainContainer.setPadding(new Insets(10));
 
         // Scene
-        Scene scene = new Scene(mainContainer, 500, 500);
+        Scene scene = new Scene(mainContainer, 600, 500);
 
         // Stage
         stage.setScene(scene);
@@ -181,10 +192,16 @@ public class ToDoListApplication
         lowButton.setSelected(true);
     }
 
-    private void OnPrintButtonClick()
+    private void OnPrintButtonClick() throws IOException
     {
+        String appDataPath = System.getenv("APPDATA");
+        String filename = "todolist.txt";
+        String filePath = appDataPath + "\\nicholai518\\JavaFXTodoListApp";
+
+        Files.createDirectories(Paths.get(filePath));
+
         // Creating file ?
-        File toDoFile = new File("C:\\toDoList.txt");
+        File toDoFile = new File(filePath + "\\" + filename);
 
         // Used to append to a file if one already exists with this name
         FileWriter fileWriter = null;
@@ -220,7 +237,7 @@ public class ToDoListApplication
             fileWriter.close();
 
             // Update Text display
-            toDoListDisplayText.setText("File Has been saved to C drive. Good Luck!");
+            toDoListDisplayText.setText("File Has been saved to " + filePath + " drive. Good Luck!");
 
         }
         // Throws IOException
