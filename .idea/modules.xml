@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaFXSTARTERTEMPLATE.iml" filepath="$PROJECT_DIR$/JavaFXSTARTERTEMPLATE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaFXTodoListApp.iml" filepath="$PROJECT_DIR$/JavaFXTodoListApp.iml" />
     </modules>
   </component>
 </project>
