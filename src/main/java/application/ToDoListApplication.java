@@ -176,16 +176,20 @@ public class ToDoListApplication
         Iterator<Task> itr = theTaskList.iterator();
 
         int counter = 1;
-        String listSringAccumulator = "";
+        StringBuilder listStringAccumulator = new StringBuilder();
 
         while (itr.hasNext())
         {
-            listSringAccumulator += counter + ": " + itr.next() + "\n";
+            listStringAccumulator
+                    .append(counter)
+                    .append(": ")
+                    .append(itr.next())
+                    .append("\n");
             counter++;
         }
 
         // Display List values
-        toDoListDisplayText.setText(listSringAccumulator);
+        toDoListDisplayText.setText(listStringAccumulator.toString());
 
         // Reset accumulator and controls
         enterTaskTextField.setText("");
@@ -193,7 +197,7 @@ public class ToDoListApplication
         lowButton.setSelected(true);
     }
 
-    private void OnPrintButtonClick() throws IOException
+    private void OnPrintButtonClick()
     {
         try
         {
