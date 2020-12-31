@@ -1,4 +1,4 @@
-package main.java.application;
+package application;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.Iterator;
 
 public class FileSystemToDoListSavedData implements ITodoListSavedData
@@ -14,7 +13,7 @@ public class FileSystemToDoListSavedData implements ITodoListSavedData
     public void save(ToDoList todoList) throws IOException
     {
         String appDataPath = System.getenv("APPDATA");
-        String filename = "todolist.txt";
+        String filename = "todos.csv";
         String directoryPath = appDataPath + "\\nicholai518\\JavaFXTodoListApp";
         String filePath = directoryPath + "\\" + filename;
 
@@ -34,24 +33,22 @@ public class FileSystemToDoListSavedData implements ITodoListSavedData
         Iterator<Task> itr = todoList.getTasks().iterator();
 
         int counter = 1;
-        StringBuilder listStringAccumulator = new StringBuilder();
-
         while (itr.hasNext())
         {
-            listStringAccumulator
-                    .append(counter)
-                    .append(": ")
-                    .append(itr.next())
-                    .append("\n");
+            Task task = itr.next();
+            // id,text,date,LOI,timeSensitive
+            String listStringAccumulator = counter +
+                    "," +
+                    task.getTaskDescription() +
+                    "," +
+                    task.getCreatedAt() +
+                    "," +
+                    task.getLevelOfImportance() +
+                    "," +
+                    task.getTimeSensitive();
+            printWriter.println(listStringAccumulator);
             counter++;
         }
-
-        LocalDate localDate = LocalDate.now();
-        printWriter.println("----------------------------");
-        printWriter.println("to-do-list: " + localDate);
-        printWriter.println(listStringAccumulator);
-        printWriter.println("");
-        printWriter.println("");
 
         // Close
         printWriter.close();

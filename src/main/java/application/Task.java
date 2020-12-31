@@ -1,4 +1,4 @@
-package main.java.application;
+package application;
 
 import java.util.Date;
 
@@ -15,6 +15,7 @@ public class Task implements Comparable<Task>
     private String taskDescription;
     private boolean timeSensitive;
     private TaskImportance levelOfImportance; // High, Medium, Low
+
     private Date createdAt;
     private int priorityLevel;
 
@@ -28,6 +29,17 @@ public class Task implements Comparable<Task>
     }
 
     // Methods
+
+    public boolean isTimeSensitive()
+    {
+        return timeSensitive;
+    }
+
+    public Date getCreatedAt()
+    {
+        return createdAt;
+    }
+
     public String getTaskDescription()
     {
         return taskDescription;

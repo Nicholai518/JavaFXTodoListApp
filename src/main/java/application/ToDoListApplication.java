@@ -1,4 +1,4 @@
-package main.java.application;
+package application;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,13 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;

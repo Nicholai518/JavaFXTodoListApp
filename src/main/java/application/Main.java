@@ -1,8 +1,7 @@
-package main.java;
+package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import main.java.application.ToDoListApplication;
 
 public class Main extends Application
 {
