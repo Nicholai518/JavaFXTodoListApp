@@ -1,4 +1,4 @@
-package sample;
+package main.java.application;
 
 import java.util.LinkedList;
 import java.util.List;

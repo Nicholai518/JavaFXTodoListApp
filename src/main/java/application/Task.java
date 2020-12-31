@@ -1,4 +1,4 @@
-package sample;
+package main.java.application;
 
 public class Task implements Comparable<Task>
 {
